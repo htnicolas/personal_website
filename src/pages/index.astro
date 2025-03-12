@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProjectRow from '../components/ProjectRow.astro';
+import { projects } from '../data/projects';
+import '../styles/global.css';
+import '../styles/animations.css';
+---
+
+<Layout title="Nico's Portfolio">
+  <Header />
+  
+  <div class="projects-container">
+    <div class="divider"></div>
+    
+    {projects.map((project, index) => (
+      <>
+        <ProjectRow project={project} index={index} />
+        <div class="divider"></div>
+      </>
+    ))}
+  </div>
+</Layout>
