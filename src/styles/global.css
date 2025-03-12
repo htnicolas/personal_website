@@ -60,8 +60,9 @@ h1 {
 
 .project-number {
   font-size: 1.8rem; /* Updated to match project title */
-  font-weight: 900;
+  font-weight: 10;
   margin-right: 1rem;
+  margin-left: 1rem;
   opacity: 0.7;
 }
 
@@ -74,6 +75,7 @@ h1 {
 .project-date {
   font-size: 1.8rem; /* Updated to match project title */
   font-weight: 900;
+  margin-right: 1rem;
   opacity: 0.7;
 }
 
@@ -213,4 +215,19 @@ h1 {
   height: 100%;
   border: none;
   border-radius: 4px;
+}
+
+/* Changes to handle multi paragraph descriptions */
+/* Paragraph spacing */
+.project-description p {
+  margin-bottom: 0; /* Reset default margins */
+}
+
+.project-description p.mt-4 {
+  margin-top: 1rem; /* Add spacing between paragraphs */
+}
+
+/* Optional: add styles for better text readability */
+.project-description {
+  line-height: 1.6;
 }

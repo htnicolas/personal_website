@@ -12,11 +12,11 @@ const projectNum = (index + 1).toString().padStart(2, '0');
 // Function to get YouTube ID from URL
 function getYouTubeID(url) {
   if (!url) return null;
-  
+
   // Handle different YouTube URL formats
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
-  
+
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
@@ -25,26 +25,25 @@ function renderMediaItems(mediaItems) {
   if (!mediaItems || !mediaItems.length) {
     return `<div class="media-item">No media available</div>`;
   }
-  
+
   return mediaItems.map(item => {
     if (item.type === 'image') {
-      // Use actual img tags instead of background images
       return `<div class="media-item">
         <img src="${item.url}" alt="${item.alt}" loading="lazy" />
       </div>`;
     } else if (item.type === 'video') {
       // Check if it's a YouTube URL
       const youtubeID = getYouTubeID(item.url);
-      
+
       if (youtubeID) {
         return `<div class="media-item youtube-container">
-          <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://www.youtube.com/embed/${youtubeID}" 
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/${youtubeID}"
             title="${item.alt}"
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
         </div>`;
@@ -70,8 +69,12 @@ function renderMediaItems(mediaItems) {
   <div class="project-content-inner">
     <button class="close-button">×</button>
     <div class="project-description">
-      <p>{project.description}</p>
-      <div class="tags" style="margin-top: 1rem;">
+      {/* Render each paragraph with proper spacing */}
+      {project.description.map((paragraph, i) => (
+        <p class={i > 0 ? "mt-4" : ""}>{paragraph}</p>
+      ))}
+
+      <div class="tags" style="margin-top: 1.5rem;">
         {project.tags.map(tag => (
           <span class="tag" style="display: inline-block; background: #eee; padding: 0.25rem 0.5rem; margin-right: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; font-size: 0.8rem;">{tag}</span>
         ))}
