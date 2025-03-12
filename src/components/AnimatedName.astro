@@ -1,0 +1,158 @@
+---
+// Props for the AnimatedName component
+interface Props {
+  name: string;
+  fontSize?: string;
+  color?: string;
+  hoverColor?: string;
+}
+
+const { 
+  name, 
+  fontSize = "5rem", 
+  color = "var(--text-color)", 
+  hoverColor = "var(--accent-color)" 
+} = Astro.props;
+---
+
+<div class="animated-name">
+  {Array.from(name).map((letter, index) => (
+    <span class="letter" data-index={index}>{letter}</span>
+  ))}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // First, check if we can access the Audio API
+    // This helps debug if audio isn't working
+    if (typeof Audio !== 'undefined') {
+      console.log('Audio API is available');
+    } else {
+      console.log('Audio API is not available in this browser');
+    }
+    
+    // Create audio elements in the DOM for better browser compatibility
+    const audioContainer = document.createElement('div');
+    audioContainer.style.display = 'none';
+    audioContainer.innerHTML = `
+      <audio id="keyDownSound" preload="auto">
+        <source src="/sounds/key-down.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="keyUpSound" preload="auto">
+        <source src="/sounds/key-up.mp3" type="audio/mpeg">
+      </audio>
+    `;
+    document.body.appendChild(audioContainer);
+    
+    const keyDownSound = document.getElementById('keyDownSound');
+    const keyUpSound = document.getElementById('keyUpSound');
+    
+    // Set volume
+    if (keyDownSound) keyDownSound.volume = 0.4;
+    if (keyUpSound) keyUpSound.volume = 0.3;
+    
+    const letters = document.querySelectorAll('.animated-name .letter');
+    
+    // Add mouseenter/mouseleave events to each letter
+    letters.forEach(letter => {
+      // Mouseenter - press down the key
+      letter.addEventListener('mouseenter', () => {
+        letter.classList.add('pressed');
+        
+        // Play key down sound
+        if (keyDownSound) {
+          // Reset and play
+          keyDownSound.currentTime = 0;
+          keyDownSound.play().catch(e => console.log('Error playing sound:', e));
+        }
+      });
+      
+      // Mouseleave - release the key
+      letter.addEventListener('mouseleave', () => {
+        letter.classList.remove('pressed');
+        
+        // Play key up sound
+        if (keyUpSound) {
+          // Reset and play
+          keyUpSound.currentTime = 0;
+          keyUpSound.play().catch(e => console.log('Error playing sound:', e));
+        }
+      });
+    });
+    
+    // Sequential animation for the whole name on initial load
+    setTimeout(() => {
+      letters.forEach((letter, index) => {
+        setTimeout(() => {
+          letter.classList.add('pressed');
+          if (keyDownSound) {
+            const clone = keyDownSound.cloneNode(true);
+            clone.volume = 0.3;
+            clone.play().catch(e => console.log('Error playing sound:', e));
+          }
+          
+          setTimeout(() => {
+            letter.classList.remove('pressed');
+            if (keyUpSound) {
+              const clone = keyUpSound.cloneNode(true);
+              clone.volume = 0.2;
+              clone.play().catch(e => console.log('Error playing sound:', e));
+            }
+          }, 150);
+        }, index * 100);
+      });
+    }, 1000);
+  });
+</script>
+
+<style>
+  .animated-name {
+    display: flex;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+  }
+  
+  .letter {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    display: inline-block;
+    position: relative;
+    transition: transform 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                top 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                text-shadow 0.08s ease-in,
+                color 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    top: 0;
+    padding: 0 2px;
+    transform-origin: center bottom;
+    /* Softer shadow */
+    text-shadow: 0 6px 8px rgba(0,0,0,0.08);
+  }
+  
+  .letter.pressed {
+    transform: scale(0.92);
+    top: 6px;
+    text-shadow: 0 0 0 rgba(0,0,0,0) !important;
+  }
+  
+  /* Create a subtle 3D effect with fuzzier shadow */
+  .letter:before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 1px;
+    right: 1px;
+    height: 8px;
+    background-color: rgba(0,0,0,0.07); /* More transparent shadow */
+    border-radius: 0 0 6px 6px;
+    transition: all 0.08s ease-in;
+    filter: blur(2px); /* Add blur for fuzzier shadow */
+  }
+  
+  .letter.pressed:before {
+    height: 2px;
+    opacity: 0.5;
+  }
+</style>
