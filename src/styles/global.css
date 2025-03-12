@@ -34,7 +34,7 @@ h1 {
 }
 
 .bio {
-  font-size: 1rem;
+  font-size: 0.8rem;
   max-width: 600px;
   margin-top: 1rem;
   opacity: 0.8;
@@ -90,6 +90,7 @@ h1 {
   height: 0;
   overflow: hidden;
   padding: 0 1rem;
+  font-size: 0.8rem;
 }
 
 .project-content-inner {
