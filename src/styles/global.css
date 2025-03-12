@@ -232,3 +232,23 @@ h1 {
 .project-description {
   line-height: 1.6;
 }
+
+/* Social icons */
+/* Social icons positioning */
+header {
+  position: relative;
+  margin-bottom: 3rem; /* Maintain existing space */
+}
+
+.bio {
+  margin-bottom: 0.5rem; /* Reduce space after bio */
+}
+
+.social-icons {
+  margin-bottom: 0.5rem; /* Space before projects */
+}
+
+/* Make sure projects container doesn't add extra space */
+.projects-container {
+  margin-top: 0;
+}
