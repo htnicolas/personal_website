@@ -49,8 +49,8 @@ export const projects: Project[] = [
     year: "2023",
     description: [
       "I'm particularly fascinated by the synergy between music and visuals. The process of animation in After Effects is tedious enough as it is - bring in audio and you add a whole new level of complexity trying to lining up motion and transients. Imagine having to animate an entire musical performance, and making a shape transform a certain way every time the snare is hit.",
-      "<a href='https://midi2ae.com/' target='_blank' rel='noopener noreferrer'>MIDI2AE</a> is a webapp that converts MIDI files into a format that After Effects can easily understand. A few clicks and all your snare hits can control the shape you want.",
-      "The goal is to make it easier for motion designers to create animations that are in sync with music.",
+      "<a href='https://midi2ae.com/' target='_blank' rel='noopener noreferrer'>MIDI2AE</a> is a webapp that converts MIDI files into a format that After Effects can easily understand. A few clicks and all your snare hits can control the shape you want.", "As a bonus, MIDI2AE also computes exhaustive chord information from the input MIDI file - that lets you effectively transcribe any MIDI track, time-synced. And you can even use it to generate synethesia-like animations: e.g. make all altered chords fuchsia, or all minor 11th chords cyan...",
+      "MIDI2AE makes it easier for motion designers to create animations that are in sync with music.",
     ],
     media: [
       {
