@@ -190,12 +190,13 @@ const {
             // Now animate from pressed to overshoot, then to rest
             gsap.timeline()
               .to(letter, {
-                transform: 'scale(1.05)',
+                transform: 'scale(1.05)', // overshoot amount
                 top: '-2px',
-                duration: 0.2,
+                duration: 0.2, // speed of overshoot
                 ease: "power2.out"
               })
               .to(letter, {
+                // Overshoot amount
                 transform: 'scale(1)',
                 top: '0px',
                 duration: 0.3,
