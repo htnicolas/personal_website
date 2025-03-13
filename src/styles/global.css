@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist Sans', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--main-bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -21,6 +21,12 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* For monospace elements like code, if needed */
+code, pre {
+  font-family: 'Geist Mono', monospace;
+}
+
 
 header {
   position: relative;
