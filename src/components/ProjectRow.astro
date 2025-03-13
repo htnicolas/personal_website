@@ -71,7 +71,7 @@ function renderMediaItems(mediaItems) {
     <div class="project-description">
       {/* Render each paragraph with proper spacing */}
       {project.description.map((paragraph, i) => (
-        <p class={i > 0 ? "mt-4" : ""}>{paragraph}</p>
+        <p class={i > 0 ? "mt-4" : ""} set:html={paragraph} />
       ))}
 
       <div class="tags" style="margin-top: 1.5rem;">

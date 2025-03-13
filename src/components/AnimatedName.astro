@@ -31,36 +31,36 @@ const {
       this.poolSize = poolSize;
       this.soundUrl = soundUrl;
     }
-    
+
     // Initialize the pool with multiple audio elements
     init() {
       if (this.initialized) return;
-      
+
       for (let i = 0; i < this.poolSize; i++) {
         const audio = new Audio();
         audio.src = this.soundUrl;
         audio.preload = 'auto';
-        
+
         // Force browser to start loading the audio
         audio.load();
-        
+
         this.sounds.push({
           element: audio,
           ready: true
         });
       }
-      
+
       this.initialized = true;
     }
-    
+
     // Play a sound from the pool
     play(volume = 0.4) {
       if (!this.initialized) this.init();
-      
+
       // Find the next available sound in the pool
       let sound = null;
       let foundReady = false;
-      
+
       // First try to find a ready sound
       for (let i = 0; i < this.sounds.length; i++) {
         const index = (this.currentIndex + i) % this.sounds.length;
@@ -71,24 +71,24 @@ const {
           break;
         }
       }
-      
+
       // If no ready sound, force reuse the next one
       if (!foundReady) {
         sound = this.sounds[this.currentIndex];
         this.currentIndex = (this.currentIndex + 1) % this.sounds.length;
       }
-      
+
       // Prepare and play the sound
       const audioElement = sound.element;
       audioElement.volume = volume;
       audioElement.currentTime = 0;
-      
+
       // Mark as not ready, then set it back to ready when ended
       sound.ready = false;
-      
+
       // Use the modern promise-based API with fallback
       const playPromise = audioElement.play();
-      
+
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
@@ -109,18 +109,18 @@ const {
       }
     }
   }
-  
+
   document.addEventListener('DOMContentLoaded', () => {
     console.log('Initializing keyboard sound effects');
-    
+
     // Create sound pools
     const keyDownSoundPool = new SoundPool('/sounds/key-down.mp3', 4);
     const keyUpSoundPool = new SoundPool('/sounds/key-up.mp3', 4);
-    
+
     // Force initialization
     keyDownSoundPool.init();
     keyUpSoundPool.init();
-    
+
     // Initialize interaction on first user interaction to satisfy browser autoplay policies
     function initOnInteraction() {
       // Play a silent sound to unlock audio
@@ -128,80 +128,208 @@ const {
       silentSound.src = '/sounds/key-down.mp3';
       silentSound.volume = 0.001;
       silentSound.play().catch(() => console.log('Silent sound initialization failed, this is normal.'));
-      
+
       // Remove the initialization event now that we've unlocked audio
       document.removeEventListener('click', initOnInteraction);
       document.removeEventListener('touchstart', initOnInteraction);
     }
-    
+
     // Add initialization listeners
     document.addEventListener('click', initOnInteraction, { once: true });
     document.addEventListener('touchstart', initOnInteraction, { once: true });
-    
+
     const letters = document.querySelectorAll('.animated-name .letter');
-    
+
     // Track current state to prevent duplicate events
     const letterStates = new Map();
     letters.forEach(letter => {
       letterStates.set(letter, false); // Not pressed initially
     });
-    
-    // Add mouseenter/mouseleave events to each letter
+
+    // Add mouseenter/mouseleave events to each letter with GSAP animation
     letters.forEach(letter => {
       // Mouseenter - press down the key
       letter.addEventListener('mouseenter', () => {
         if (!letterStates.get(letter)) {
+          // Clear any ongoing animations
+          if (window.gsap) {
+            gsap.killTweensOf(letter);
+          }
+
+          // Make sure we reset any inline styles
+          letter.style.transform = '';
+          letter.style.top = '';
+
+          // Then add pressed class to depress the key
           letter.classList.add('pressed');
           letterStates.set(letter, true);
-          
-          // Play key down sound with a slight randomization in volume
+
+          // Play key down sound
           const volume = 0.35 + Math.random() * 0.1; // 0.35-0.45 range
           keyDownSoundPool.play(volume);
         }
       });
-      
-      // Mouseleave - release the key
+
+      // Mouseleave - release the key with springy animation
       letter.addEventListener('mouseleave', () => {
         if (letterStates.get(letter)) {
-          letter.classList.remove('pressed');
+          // Use GSAP for a more springy release animation
+          if (window.gsap) {
+            // Kill any existing animations
+            gsap.killTweensOf(letter);
+
+            // Save the pressed state visually
+            const pressedTransform = 'scale(0.92)';
+            const pressedTop = '6px';
+
+            // Remove the class but keep the visual state with inline styles
+            letter.classList.remove('pressed');
+            letter.style.transform = pressedTransform;
+            letter.style.top = pressedTop;
+
+            // Now animate from pressed to overshoot, then to rest
+            gsap.timeline()
+              .to(letter, {
+                transform: 'scale(1.05)',
+                top: '-2px',
+                duration: 0.2,
+                ease: "power2.out"
+              })
+              .to(letter, {
+                transform: 'scale(1)',
+                top: '0px',
+                duration: 0.3,
+                ease: "elastic.out(1.2, 0.5)"
+              });
+          } else {
+            // Fallback to CSS if GSAP isn't available
+            letter.classList.add('releasing');
+            letter.classList.remove('pressed');
+
+            // Remove the releasing class after animation completes
+            setTimeout(() => {
+              letter.classList.remove('releasing');
+            }, 600); // Match this to your CSS animation duration
+          }
+
           letterStates.set(letter, false);
-          
+
           // Play key up sound with a slight randomization in volume
           const volume = 0.25 + Math.random() * 0.1; // 0.25-0.35 range
           keyUpSoundPool.play(volume);
         }
       });
-      
+
       // Also add touchstart/touchend for mobile (optional)
       letter.addEventListener('touchstart', (e) => {
         e.preventDefault(); // Prevent scrolling/zooming
         if (!letterStates.get(letter)) {
+          if (window.gsap) {
+            gsap.killTweensOf(letter);
+          }
+
+          // Reset inline styles
+          letter.style.transform = '';
+          letter.style.top = '';
+
           letter.classList.add('pressed');
           letterStates.set(letter, true);
           keyDownSoundPool.play(0.4);
         }
       });
-      
+
       letter.addEventListener('touchend', (e) => {
         e.preventDefault();
         if (letterStates.get(letter)) {
-          letter.classList.remove('pressed');
+          if (window.gsap) {
+            // Kill any existing animations
+            gsap.killTweensOf(letter);
+
+            // Save the pressed state visually
+            const pressedTransform = 'scale(0.92)';
+            const pressedTop = '6px';
+
+            // Remove the class but keep the visual state with inline styles
+            letter.classList.remove('pressed');
+            letter.style.transform = pressedTransform;
+            letter.style.top = pressedTop;
+
+            // Now animate with timeline for better control
+            gsap.timeline()
+              .to(letter, {
+                transform: 'scale(1.05)',
+                top: '-2px',
+                duration: 0.2,
+                ease: "power2.out"
+              })
+              .to(letter, {
+                transform: 'scale(1)',
+                top: '0px',
+                duration: 0.3,
+                ease: "elastic.out(1.2, 0.5)"
+              });
+          } else {
+            letter.classList.add('releasing');
+            letter.classList.remove('pressed');
+
+            setTimeout(() => {
+              letter.classList.remove('releasing');
+            }, 600);
+          }
+
           letterStates.set(letter, false);
           keyUpSoundPool.play(0.3);
         }
       });
     });
-    
+
     // Sequential animation for the whole name on initial load (with delay)
     setTimeout(() => {
       letters.forEach((letter, index) => {
         setTimeout(() => {
+          // Press down
           letter.classList.add('pressed');
           letterStates.set(letter, true);
           keyDownSoundPool.play(0.3);
-          
+
+          // Release with overshoot after a short delay
           setTimeout(() => {
-            letter.classList.remove('pressed');
+            if (window.gsap) {
+              // Kill any existing animations
+              gsap.killTweensOf(letter);
+
+              // Save the pressed state visually
+              const pressedTransform = 'scale(0.92)';
+              const pressedTop = '6px';
+
+              // Remove the class but keep the visual state with inline styles
+              letter.classList.remove('pressed');
+              letter.style.transform = pressedTransform;
+              letter.style.top = pressedTop;
+
+              // Now animate with timeline for better control
+              gsap.timeline()
+                .to(letter, {
+                  transform: 'scale(1.05)',
+                  top: '-2px',
+                  duration: 0.2,
+                  ease: "power2.out"
+                })
+                .to(letter, {
+                  transform: 'scale(1)',
+                  top: '0px',
+                  duration: 0.3,
+                  ease: "elastic.out(1.2, 0.5)"
+                });
+            } else {
+              letter.classList.add('releasing');
+              letter.classList.remove('pressed');
+
+              setTimeout(() => {
+                letter.classList.remove('releasing');
+              }, 600);
+            }
+
             letterStates.set(letter, false);
             keyUpSoundPool.play(0.2);
           }, 150);
@@ -209,7 +337,9 @@ const {
       });
     }, 1000);
   });
-</script><style>
+</script>
+
+<style>
 .animated-name {
   display: flex;
   margin-bottom: 1rem;
@@ -222,23 +352,48 @@ const {
   letter-spacing: -2px;
   display: inline-block;
   position: relative;
-  transition: transform 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              top 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transition: transform 0.06s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              top 0.06s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               color 0.2s ease;
   cursor: pointer;
   user-select: none;
   top: 0;
   padding: 0 2px;
   transform-origin: center bottom;
+  will-change: transform, top;
   /* No shadow by default */
   text-shadow: none;
 }
 
 .letter.pressed {
-  transform: scale(0.92);
-  top: 6px;
+  transform: scale(0.92) !important;
+  top: 6px !important;
   /* Very slight shadow when pressed */
   text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* CSS fallback animation for springy release (used if GSAP isn't available) */
+.letter.releasing {
+  animation: spring-release 0.6s ease-out forwards;
+}
+
+@keyframes spring-release {
+  0% {
+    transform: scale(0.92);
+    top: 6px;
+  }
+  40% {
+    transform: scale(1.05);
+    top: -2px;
+  }
+  70% {
+    transform: scale(0.98);
+    top: 1px;
+  }
+  100% {
+    transform: scale(1);
+    top: 0;
+  }
 }
 
 /* Implement shadow using pseudo-element for better control */
@@ -259,5 +414,21 @@ const {
 .letter.pressed:before {
   height: 4px; /* Small height when pressed */
   opacity: 0.6; /* Slightly visible when pressed */
+}
+
+/* Shadow should fade away during spring release */
+.letter.releasing:before {
+  animation: fade-shadow 0.3s ease-out forwards;
+}
+
+@keyframes fade-shadow {
+  0% {
+    height: 4px;
+    opacity: 0.6;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
 }
 </style>

@@ -32,6 +32,7 @@ header {
   position: relative;
   margin-bottom: 0.2rem; /* Maintain existing space */
   opacity: 0; /* For initial animation */
+  margin-top: 3rem;
 }
 
 h1 {

@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description: [
       "An interactive data visualization tool built with D3.js that allows users to explore complex datasets through intuitive interfaces. This project focused on making data accessible and understandable through thoughtful design and interactive elements.",
       "The visualization uses a combination of charts, graphs, and interactive filters to help users discover patterns and insights within the data. Users can drill down into specific data points and export their findings.",
-      "This project was built using D3.js, React, and TypeScript, with a Node.js backend for data processing."
+      "This project was built using D3.js, <a href='https://reactjs.org/' target='_blank' rel='noopener noreferrer'>React</a>, and TypeScript, with a Node.js backend for data processing."
     ],
     media: [
       {
