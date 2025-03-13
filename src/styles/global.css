@@ -187,15 +187,15 @@ h1 {
   .project-content-inner {
     flex-direction: column;
   }
-  
+
   .project-description {
     max-width: 100%;
   }
-  
+
   h1 {
     font-size: 3.5rem;
   }
-  
+
   .project-number,
   .project-title,
   .project-date {
@@ -230,7 +230,7 @@ h1 {
 }
 
 .project-description p.mt-4 {
-  margin-top: 1rem; /* Add spacing between paragraphs */
+  margin-top: 0.5rem; /* Add spacing between paragraphs */
 }
 
 /* Optional: add styles for better text readability */

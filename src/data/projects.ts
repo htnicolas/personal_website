@@ -16,23 +16,24 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Interactive Data Visualization",
-    year: "2023",
+    title: "Automated Home Studio",
+    year: "2025",
     description: [
-      "An interactive data visualization tool built with D3.js that allows users to explore complex datasets through intuitive interfaces. This project focused on making data accessible and understandable through thoughtful design and interactive elements.",
-      "The visualization uses a combination of charts, graphs, and interactive filters to help users discover patterns and insights within the data. Users can drill down into specific data points and export their findings.",
-      "This project was built using D3.js, <a href='https://reactjs.org/' target='_blank' rel='noopener noreferrer'>React</a>, and TypeScript, with a Node.js backend for data processing."
+      "A paternity leave project - now that I realized my childhood dream of having a music room in the attic, complete with an electronic drum kit, bass, guitar, keyboards, monitors, recording interface... how do I let people know I'm recording, please do not disturb?",
+      "This project uses a Raspberry Pi running an OSC server to receive messages from a DAW (Digital Audio Workstation), namely Logic Pro X. When the DAW is recording, the Raspberry Pi triggers an optocoupler to light up an LED strip to indicate that recording is in progress.",
+      "But why stop there? What if starting a recording session could also trigger video recording, and control the light differently during recording and playback?",
+      "Github Repo: <a href='https://github.com/htnicolas/logic_recording_light' target='_blank' rel='noopener noreferrer'>Logic Recording Light</a>"
     ],
     media: [
       {
         type: "image",
-        url: "/images/data-viz-1.jpg",
-        alt: "Dashboard view of data visualization"
+        url: "/images/logic_recording_light/studio_fisheye.png",
+        alt: "Fisher-eye view of the music room"
       },
       {
         type: "image",
-        url: "/images/data-viz-2.jpg",
-        alt: "Interactive chart example"
+        url: "/images/logic_recording_light/logic_rec_light_seq_diagram.png",
+        alt: "General sequence diagram for the Logic Recording Light project"
       },
       {
         type: "video",
@@ -40,35 +41,40 @@ export const projects: Project[] = [
         alt: "Demonstration of interactive features"
       }
     ],
-    tags: ["D3.js", "Data Visualization", "UX/UI", "JavaScript"]
+    tags: ["Python", "MIDI", "OSC", "Raspberry Pi", "OBS Studio", "Logic Pro X"]
   },
   {
     id: 2,
-    title: "Mobile App Design",
-    year: "2022",
+    title: "MIDI2AE: A webapp to bring MIDI in After Effects",
+    year: "2023",
     description: [
-      "A clean, minimal mobile app designed for productivity and focus. This project involved user research, wireframing, and iterative design to create an intuitive experience that helps users achieve their goals efficiently.",
-      "The design system was built with scalability in mind, allowing for easy updates and maintenance as the product evolves.",
-      "This app has been downloaded over 50,000 times and maintains a 4.8-star rating in the App Store."
+      "I'm particularly fascinated by the synergy between music and visuals. The process of animation in After Effects is tedious enough as it is - bring in audio and you add a whole new level of complexity trying to lining up motion and transients. Imagine having to animate an entire musical performance, and making a shape transform a certain way every time the snare is hit.",
+      "<a href='https://midi2ae.com/' target='_blank' rel='noopener noreferrer'>MIDI2AE</a> is a webapp that converts MIDI files into a format that After Effects can easily understand. A few clicks and all your snare hits can control the shape you want.",
+      "The goal is to make it easier for motion designers to create animations that are in sync with music.",
     ],
     media: [
       {
         type: "image",
-        url: "/images/app-screens.jpg",
-        alt: "App screen mockups"
+        url: "/images/midi2ae/midi2ae_screenshot.png",
+        alt: "MIDI2AE webapp screenshot"
       },
       {
-        type: "image",
-        url: "/images/user-flow.jpg",
-        alt: "User flow diagram"
+        type: "video",
+        url: "https://youtu.be/k0KLAznm8ug",
+        alt: "Youtube MIDI2AE demo video"
+      },
+      {
+        type: "video",
+        url: "https://youtu.be/fNAr_giiEXc",
+        alt: "Youtube MIDI2AE tutorial video"
       }
     ],
-    tags: ["Mobile", "UX/UI", "Figma", "User Testing"]
+    tags: ["Webapp", "Python", "Flask", "MIDI", "After Effects", "React", "Google Cloud"]
   },
   {
     id: 3,
-    title: "E-commerce Platform",
-    year: "2021",
+    title: "Conductor",
+    year: "2022",
     description: [
       "A full-featured e-commerce platform with a focus on user experience and conversion optimization. This project showcases my skills in front-end development, back-end integration, and understanding of e-commerce best practices.",
       "The platform includes custom checkout flows, inventory management, and analytics dashboards for business owners.",
