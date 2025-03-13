@@ -23,7 +23,8 @@ body {
 }
 
 header {
-  padding: 4rem 0;
+  position: relative;
+  margin-bottom: 0.2rem; /* Maintain existing space */
   opacity: 0; /* For initial animation */
 }
 
@@ -40,9 +41,6 @@ h1 {
   opacity: 0.8;
 }
 
-.projects-container {
-  margin-top: 2rem;
-}
 
 .project-row {
   padding: 1.5rem 0;
@@ -235,11 +233,6 @@ h1 {
 
 /* Social icons */
 /* Social icons positioning */
-header {
-  position: relative;
-  margin-bottom: 3rem; /* Maintain existing space */
-}
-
 .bio {
   margin-bottom: 0.5rem; /* Reduce space after bio */
 }
@@ -250,5 +243,5 @@ header {
 
 /* Make sure projects container doesn't add extra space */
 .projects-container {
-  margin-top: 0;
+  margin-top: 1rem;
 }
