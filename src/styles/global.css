@@ -32,7 +32,7 @@ header {
   position: relative;
   margin-bottom: 0.2rem; /* Maintain existing space */
   opacity: 0; /* For initial animation */
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 h1 {
@@ -42,7 +42,7 @@ h1 {
 }
 
 .bio {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   max-width: 600px;
   margin-top: 1rem;
   opacity: 0.8;
@@ -95,7 +95,7 @@ h1 {
   height: 0;
   overflow: hidden;
   padding: 0 1rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .project-content-inner {
@@ -107,7 +107,7 @@ h1 {
 
 .project-description {
   flex: 1;
-  max-width: 50%;
+  max-width: 40%;
 }
 
 .media-container {

@@ -16,7 +16,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Automated Home Studio",
+    title: "Castro Studio",
     year: "2025",
     description: [
       "A paternity leave project - now that I realized my childhood dream of having a music room in the attic, complete with an electronic drum kit, bass, guitar, keyboards, monitors, recording interface... how do I let people know I'm recording, please do not disturb?",
@@ -45,11 +45,24 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "MIDI2AE: A webapp to bring MIDI in After Effects",
+    title: "IRMAI",
+    year: "2025",
+    description: [
+        "IRMAI is still under wraps - check back later!"
+    ],
+    media: [
+    ],
+    tags: ["LLMs", "Python", "React", "Celery", "Docker"]
+  },
+  {
+    id: 3,
+    title: "MIDI2AE",
     year: "2023",
     description: [
+      "In short: MIDI2AE brings MIDI to After Effects.",
       "I'm particularly fascinated by the synergy between music and visuals. The process of animation in After Effects is tedious enough as it is - bring in audio and you add a whole new level of complexity trying to lining up motion and transients. Imagine having to animate an entire musical performance, and making a shape transform a certain way every time the snare is hit.",
-      "<a href='https://midi2ae.com/' target='_blank' rel='noopener noreferrer'>MIDI2AE</a> is a webapp that converts MIDI files into a format that After Effects can easily understand. A few clicks and all your snare hits can control the shape you want.", "As a bonus, MIDI2AE also computes exhaustive chord information from the input MIDI file - that lets you effectively transcribe any MIDI track, time-synced. And you can even use it to generate synethesia-like animations: e.g. make all altered chords fuchsia, or all minor 11th chords cyan...",
+      "<a href='https://midi2ae.com/' target='_blank' rel='noopener noreferrer'>MIDI2AE</a> is a webapp that converts MIDI files into a format that After Effects can easily understand. All the notes in your MIDI files become time events that you can use to control your shapes in your comp. A simple example: a few clicks and all your snare hits can make a circle appear, while the volume of the hits can control the diameter of the circle.",
+      "As a bonus, MIDI2AE also computes exhaustive chord information from the input MIDI file - that lets you effectively transcribe any MIDI track, time-synced. And you can even use it to generate synethesia-like animations: e.g. make all altered chords fuchsia, or all minor 11th chords cyan...",
       "MIDI2AE makes it easier for motion designers to create animations that are in sync with music.",
     ],
     media: [
@@ -72,7 +85,7 @@ export const projects: Project[] = [
     tags: ["Webapp", "Python", "Flask", "MIDI", "After Effects", "React", "Google Cloud"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Conductor",
     year: "2022",
     description: [
@@ -83,25 +96,33 @@ export const projects: Project[] = [
     ],
     media: [
       {
-        type: "image",
-        url: "/images/ecommerce-1.jpg",
-        alt: "Homepage design"
+        type: "video",
+        url: "https://youtu.be/do1IYZOVTWQ",
+        alt: "Youtube Conductor demo video"
       },
+    ],
+    tags: ["WASM", "React", "Python", "MIDI"]
+  },
+  {
+    id: 5,
+    title: "Patents",
+    year: "2018-Present",
+    description: [
+      "A list of patents I've been involved in.",
+      "<li> <a href='https://patentimages.storage.googleapis.com/b9/c0/33/a927e7e7dff949/US11490048.pdf' target='_blank' rel='noopener noreferrer'>US11490048B2</a>: Intelligent video reframing. A method for intelligently reframing video content to fit different aspect ratios, while preserving the most important content.",
+      "<li> <a href='https://patentimages.storage.googleapis.com/cd/87/0d/59e610a9f9a164/US10733452.pdf' target='_blank' rel='noopener noreferrer'>US10733452B2</a>: Brand safety in video content. A method for ensuring that video content is brand-safe, by analyzing the content and its context.",
+      "<li> <a href='https://patentimages.storage.googleapis.com/d0/9a/33/2298dc8e56d069/US10522186.pdf' target='_blank' rel='noopener noreferrer'>US10522186B2</a>: Apparatus, systems, and methods for integrating digital media content. An algorithm for integrating digital media content, such as ads, into video content - without extra AR sensor data such as IMU.",
+      "<li> <a href='https://patentimages.storage.googleapis.com/43/a0/f2/a7aa3b2782f3e8/US10726599.pdf' target='_blank' rel='noopener noreferrer'>US10726599B2</a>: Realistic augmentation of images and videos with graphics. An algorithm for warping planar media with projective distortion for seamless integration and harmonization.",
+      "<li> <a href='https://patentimages.storage.googleapis.com/23/f3/37/05c623f9593af9/US20200356818A1.pdf' target='_blank' rel='noopener noreferrer'>US20200356818A1</a>: Logo Detection. An architecture for multi-class logo detection.",
+      "<li> <a href='https://patentimages.storage.googleapis.com/d4/79/52/17a7840cd635e7/US20240362506A1.pdf' target='_blank' rel='noopener noreferrer'>US20240362506A1</a>: Efficiently inferencing digital videos utilizing machine-learning models.",
+      "<li> <a href='https://patentimages.storage.googleapis.com/b0/2b/04/2b1e1857a92bdd/US20230377339A1.pdf' target='_blank' rel='noopener noreferrer'>US20230377339A1</a>: Processing framework for temporal-consistent face manipulation in videos.",
+    ],
+    media: [
       {
         type: "image",
-        url: "/images/ecommerce-2.jpg",
-        alt: "Product page"
+        url: "/images/patents/intelligent_video_reframing.png",
+        alt: "Intelligent video reframing patent diagram"
       },
-      {
-        type: "image",
-        url: "/images/ecommerce-3.jpg",
-        alt: "Checkout process"
-      },
-      {
-        type: "image",
-        url: "/images/ecommerce-4.jpg", 
-        alt: "Admin dashboard"
-      }
     ],
     tags: ["WASM", "React", "Python", "MIDI"]
   }

@@ -23,7 +23,7 @@ function getYouTubeID(url) {
 // Function to render media items
 function renderMediaItems(mediaItems) {
   if (!mediaItems || !mediaItems.length) {
-    return `<div class="media-item">No media available</div>`;
+    return `<div class="media-item"></div>`;
   }
 
   return mediaItems.map(item => {
