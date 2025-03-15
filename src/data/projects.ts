@@ -76,9 +76,10 @@ export const projects: Project[] = [
     title: "Conductor",
     year: "2022",
     description: [
-      "A full-featured e-commerce platform with a focus on user experience and conversion optimization. This project showcases my skills in front-end development, back-end integration, and understanding of e-commerce best practices.",
-      "The platform includes custom checkout flows, inventory management, and analytics dashboards for business owners.",
-      "Since launch, this platform has processed over $2M in transactions for the client, with a 28% increase in conversion rate compared to their previous solution."
+      "One can argue that music is all about expressivity: music manufacturers create countless tools to bring out and capture every nuance of a performance.",
+      "But what if instead of sliders, knobs, pedals, and wheels, you could use the fine motor controls of your own hand? Much like a conductor, you could shape the music in real-time, with the same expressivity and precision.",
+      "Conductor uses your computer camera in a simple webapp to capture your hand motion, and derive CC controls from its positions and gestures.",
+      "Raise your hand to increase the gain; move it to the left to sweep a low-pass filter; spread your fingers to open up a wah pedal... or come up with your own gestures and mappings.",
     ],
     media: [
       {
@@ -102,6 +103,6 @@ export const projects: Project[] = [
         alt: "Admin dashboard"
       }
     ],
-    tags: ["E-commerce", "React", "Node.js", "UX/UI"]
+    tags: ["WASM", "React", "Python", "MIDI"]
   }
 ];
