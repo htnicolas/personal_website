@@ -114,13 +114,23 @@ export const projects: Project[] = [
     media: [
       {
         type: "image",
-        url: "/images/smooth_operator/smooth_operator.webp",
-        alt: "Gif of auto-reframing in action"
+        url: "/images/smooth_operator/AZ5Y3576_crop.jpg",
+        alt: "Project Smooth Operator demo at Adobe MAX 2018"
       },
       {
         type: "video",
         url: "https://youtu.be/MImphmT5dy8",
         alt: "Project Smooth Operator demo video at Adobe MAX 2018"
+      },
+      {
+        type: "image",
+        url: "/images/smooth_operator/max_2_crop.jpeg",
+        alt: "Project Smooth Operator demo at Adobe MAX 2018"
+      },
+      {
+        type: "image",
+        url: "/images/smooth_operator/smooth_operator.webp",
+        alt: "Gif of auto-reframing in action"
       },
     ],
     tags: ["ML", "Python", "Video", "Adobe"]
@@ -128,8 +138,41 @@ export const projects: Project[] = [
   },
   {
     id: 6,
+    title: "NordRapPatch",
+    year: "2018",
+    description: [
+      "A custom patch for Nord Stage 3 featuring signature catchphrases from your favorite rappers and hip-hop artists.",
+      "Download the patch here: <a href='https://link-to-download' target='_blank' rel='noopener noreferrer'>NordRapPatch</a>",
+    ],
+    media: [
+      {
+        type: "video",
+        url: "https://youtu.be/do1IYZOVTWQ",
+        alt: "Youtube Conductor demo video"
+      },
+    ],
+    tags: ["Nord", "Python", "Scraping"]
+  },
+  {
+    id: 7,
+    title: "Asset Placement In Videos",
+    year: "2017",
+    description: [
+      "A research project at Uru, to embed digital assets in videos in a way that is both realistic and efficient.",
+    ],
+    media: [
+      {
+        type: "image",
+        url: "/images/uru/crossing_med_00_3.webp",
+        alt: "Example of asset placement in video"
+      },
+    ],
+    tags: ["Nord", "Python", "Scraping"]
+  },
+  {
+    id: 8,
     title: "Patents",
-    year: "2018-Present",
+    year: "*",
     description: [
       "A list of patents I've been involved in.",
       "<li> <a href='https://patentimages.storage.googleapis.com/b9/c0/33/a927e7e7dff949/US11490048.pdf' target='_blank' rel='noopener noreferrer'>US11490048B2</a>: Intelligent video reframing. A method for intelligently reframing video content to fit different aspect ratios, while preserving the most important content.",
