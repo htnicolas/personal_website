@@ -4,6 +4,7 @@
   --accent-color: #0066ff;
   --divider-color: #333;
   --row-hover-color: #f0f0f0;
+  --tag-bg-color: #eee;
 }
 
 * {
@@ -27,10 +28,10 @@ code, pre {
   font-family: 'Geist Mono', monospace;
 }
 
-
+/* Header Styles */
 header {
   position: relative;
-  margin-bottom: 0.2rem; /* Maintain existing space */
+  margin-bottom: 0.2rem;
   opacity: 0; /* For initial animation */
   margin-top: 1rem;
 }
@@ -45,10 +46,21 @@ h1 {
   font-size: 0.7rem;
   max-width: 600px;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
   opacity: 0.8;
 }
 
+/* Social Icons */
+.social-icons {
+  margin-bottom: 0.5rem;
+}
 
+/* Projects Container */
+.projects-container {
+  margin-top: 1rem;
+}
+
+/* Project Row Styles */
 .project-row {
   padding: 1.5rem 0;
   display: flex;
@@ -64,7 +76,7 @@ h1 {
 }
 
 .project-number {
-  font-size: 1.8rem; /* Updated to match project title */
+  font-size: 1.8rem;
   font-weight: 10;
   margin-right: 1rem;
   margin-left: 1rem;
@@ -78,7 +90,7 @@ h1 {
 }
 
 .project-date {
-  font-size: 1.8rem; /* Updated to match project title */
+  font-size: 1.8rem;
   font-weight: 900;
   margin-right: 1rem;
   opacity: 0.7;
@@ -91,6 +103,7 @@ h1 {
   transform-origin: center;
 }
 
+/* Project Content Styles */
 .project-content {
   height: 0;
   overflow: hidden;
@@ -108,22 +121,47 @@ h1 {
 .project-description {
   flex: 1;
   max-width: 40%;
+  line-height: 1.6;
 }
 
+.project-description p {
+  margin-bottom: 0;
+}
+
+.project-description p.mt-4 {
+  margin-top: 0.5rem;
+}
+
+/* Tags Styling */
+.tags {
+  margin-top: 1.5rem;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--tag-bg-color);
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Media Container Styles */
 .media-container {
   flex: 1;
 }
 
 .media-carousel {
   display: flex;
-  flex-direction: column; /* Changed from row to column */
+  flex-direction: column;
   gap: 1rem;
   padding-bottom: 1rem;
 }
 
 .media-item {
   width: 100%;
-  height: auto; /* Allow height to be determined by content */
+  height: auto;
   background-color: #ddd;
   border-radius: 4px;
   margin-bottom: 1rem;
@@ -132,7 +170,7 @@ h1 {
 
 /* For background images */
 .media-item.bg-image {
-  padding-top: 56.25%; /* Default 16:9 aspect ratio as fallback */
+  padding-top: 56.25%; /* 16:9 aspect ratio as fallback */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -155,6 +193,27 @@ h1 {
   display: block;
 }
 
+/* YouTube Container */
+.youtube-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.youtube-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Close Button */
 .close-button {
   position: absolute;
   top: 0;
@@ -201,54 +260,4 @@ h1 {
   .project-date {
     font-size: 1.4rem; /* Smaller font size on mobile */
   }
-}
-
-/* Changes to handle youtube videos */
-.youtube-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
-
-.youtube-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 4px;
-}
-
-/* Changes to handle multi paragraph descriptions */
-/* Paragraph spacing */
-.project-description p {
-  margin-bottom: 0; /* Reset default margins */
-}
-
-.project-description p.mt-4 {
-  margin-top: 0.5rem; /* Add spacing between paragraphs */
-}
-
-/* Optional: add styles for better text readability */
-.project-description {
-  line-height: 1.6;
-}
-
-/* Social icons */
-/* Social icons positioning */
-.bio {
-  margin-bottom: 0.5rem; /* Reduce space after bio */
-}
-
-.social-icons {
-  margin-bottom: 0.5rem; /* Space before projects */
-}
-
-/* Make sure projects container doesn't add extra space */
-.projects-container {
-  margin-top: 1rem;
 }

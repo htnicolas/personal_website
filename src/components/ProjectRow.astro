@@ -73,9 +73,9 @@ function renderMediaItems(mediaItems) {
         <p class={i > 0 ? "mt-4" : ""} set:html={paragraph} />
       ))}
 
-      <div class="tags" style="margin-top: 1.5rem;">
+      <div class="tags">
         {project.tags.map(tag => (
-          <span class="tag" style="display: inline-block; background: #eee; padding: 0.25rem 0.5rem; margin-right: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; font-size: 0.8rem;">{tag}</span>
+          <span class="tag">{tag}</span>
         ))}
       </div>
     </div>
