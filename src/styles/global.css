@@ -150,6 +150,9 @@ h1 {
 /* Media Container Styles */
 .media-container {
   flex: 1;
+  max-height: 500px; /* Set a fixed height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border-radius: 4px; /* Optional: rounded corners */
 }
 
 .media-carousel {
@@ -157,6 +160,7 @@ h1 {
   flex-direction: column;
   gap: 1rem;
   padding-bottom: 1rem;
+  padding-right: 0.5rem; /* Add some padding to account for scrollbar */
 }
 
 .media-item {
@@ -241,6 +245,26 @@ h1 {
   height: 4px;
 }
 
+/* Custom Scrollbar Styling */
+.media-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.media-container::-webkit-scrollbar-track {
+  background: var(--main-bg-color);
+  border-radius: 4px;
+}
+
+.media-container::-webkit-scrollbar-thumb {
+  background-color: var(--divider-color);
+  border-radius: 4px;
+  opacity: 0.6;
+}
+
+.media-container::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .project-content-inner {
@@ -249,6 +273,10 @@ h1 {
 
   .project-description {
     max-width: 100%;
+  }
+  
+  .media-container {
+    max-height: 400px; /* Slightly smaller on mobile */
   }
 
   h1 {

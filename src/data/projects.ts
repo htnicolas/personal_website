@@ -59,11 +59,11 @@ export const projects: Project[] = [
     title: "MIDI2AE",
     year: "2023",
     description: [
-      "In short: MIDI2AE brings MIDI to After Effects.",
+      "In short: MIDI2AE brings MIDI to After Effects, and enables motion designers to create animations that are in sync with music, easily.",
       "I'm particularly fascinated by the synergy between music and visuals. The process of animation in After Effects is tedious enough as it is - bring in audio and you add a whole new level of complexity trying to lining up motion and transients. Imagine having to animate an entire musical performance, and making a shape transform a certain way every time the snare is hit.",
       "<a href='https://midi2ae.com/' target='_blank' rel='noopener noreferrer'>MIDI2AE</a> is a webapp that converts MIDI files into a format that After Effects can easily understand. All the notes in your MIDI files become time events that you can use to control your shapes in your comp. A simple example: a few clicks and all your snare hits can make a circle appear, while the volume of the hits can control the diameter of the circle.",
       "As a bonus, MIDI2AE also computes exhaustive chord information from the input MIDI file - that lets you effectively transcribe any MIDI track, time-synced. And you can even use it to generate synethesia-like animations: e.g. make all altered chords fuchsia, or all minor 11th chords cyan...",
-      "MIDI2AE makes it easier for motion designers to create animations that are in sync with music.",
+      "MIDI2AE is 100% free.",
     ],
     media: [
       {
@@ -105,6 +105,29 @@ export const projects: Project[] = [
   },
   {
     id: 5,
+    title: "SmoothOperator",
+    year: "2018",
+    description: [
+      "A very public demo (an audience of 15k!) of the project Smooth Operator, at Adobe MAX 2018.",
+      "The project then got productized and became the <a href='https://helpx.adobe.com/premiere-pro/using/auto-reframe.html' target='_blank' rel='noopener noreferrer'>AutoReframe feature</a> in Adobe Premiere Pro and Premiere Rush, and was deployed as a service to become <a href='https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/video/dynamic-media-smart-crop-video' target='_blank' rel='noopener noreferrer'>Dynamic Media Smart Crop for Video</a> in Adobe Experience Manager (AEM).",
+    ],
+    media: [
+      {
+        type: "image",
+        url: "/images/smooth_operator/smooth_operator.webp",
+        alt: "Gif of auto-reframing in action"
+      },
+      {
+        type: "video",
+        url: "https://youtu.be/MImphmT5dy8",
+        alt: "Project Smooth Operator demo video at Adobe MAX 2018"
+      },
+    ],
+    tags: ["ML", "Python", "Video", "Adobe"]
+
+  },
+  {
+    id: 6,
     title: "Patents",
     year: "2018-Present",
     description: [
@@ -124,6 +147,6 @@ export const projects: Project[] = [
         alt: "Intelligent video reframing patent diagram"
       },
     ],
-    tags: ["WASM", "React", "Python", "MIDI"]
+    tags: []
   }
 ];
