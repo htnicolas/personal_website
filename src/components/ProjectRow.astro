@@ -20,6 +20,18 @@ function getYouTubeID(url) {
   return (match && match[2].length === 11) ? match[2] : null;
 }
 
+// Function to get Instagram post ID from URL
+function getInstagramID(url) {
+  if (!url) return null;
+  
+  // Handle different Instagram URL formats
+  // Format: https://www.instagram.com/p/CnVgPhYP6gs/
+  const regExp = /instagram\.com\/p\/([^\/\?]+)/;
+  const match = url.match(regExp);
+  
+  return match ? match[1] : null;
+}
+
 // Function to render media items
 function renderMediaItems(mediaItems) {
   if (!mediaItems || !mediaItems.length) {
@@ -52,6 +64,25 @@ function renderMediaItems(mediaItems) {
         return `<div class="media-item">
           <video controls src="${item.url}" title="${item.alt}"></video>
         </div>`;
+      }
+    } else if (item.type === 'instagram') {
+      // Check if it's an Instagram URL
+      const instagramID = getInstagramID(item.url);
+      
+      if (instagramID) {
+        return `<div class="media-item instagram-container">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.instagram.com/p/${instagramID}/embed"
+            title="${item.alt || 'Instagram post'}"
+            frameborder="0"
+            scrolling="no"
+            allowtransparency="true">
+          </iframe>
+        </div>`;
+      } else {
+        return `<div class="media-item">Invalid Instagram URL</div>`;
       }
     } else {
       return `<div class="media-item">Unsupported media</div>`;

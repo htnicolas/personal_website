@@ -73,14 +73,14 @@ export const projects: Project[] = [
       },
       {
         type: "video",
-        url: "https://youtu.be/k0KLAznm8ug",
-        alt: "Youtube MIDI2AE demo video"
-      },
-      {
-        type: "video",
         url: "https://youtu.be/fNAr_giiEXc",
         alt: "Youtube MIDI2AE tutorial video"
-      }
+      },
+      {
+        type: "instagram",
+        url: "https://www.instagram.com/p/CnVgPhYP6gs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        alt: "Youtube MIDI2AE tutorial video"
+      },
     ],
     tags: ["Webapp", "Python", "Flask", "MIDI", "After Effects", "React", "Google Cloud"]
   },
@@ -138,7 +138,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: "NordRapPatch",
+    title: "Nord Stage Patch",
     year: "2018",
     description: [
       "A custom patch for Nord Stage 3 featuring signature catchphrases from your favorite rappers and hip-hop artists.",
@@ -151,14 +151,14 @@ export const projects: Project[] = [
         alt: "Youtube Conductor demo video"
       },
     ],
-    tags: ["Nord", "Python", "Scraping"]
+    tags: ["Nord", "Python"]
   },
   {
     id: 7,
     title: "Asset Placement In Videos",
     year: "2017",
     description: [
-      "A research project at Uru, to embed digital assets in videos in a way that is both realistic and efficient.",
+      "A research project at Uru, to embed digital assets in videos in a way that is both realistic and efficient, using homography for planar transforms.",
     ],
     media: [
       {
@@ -167,7 +167,7 @@ export const projects: Project[] = [
         alt: "Example of asset placement in video"
       },
     ],
-    tags: ["Nord", "Python", "Scraping"]
+    tags: ["Python", "OpenCV", "Epipolar Geometry", "Computer Vision"]
   },
   {
     id: 8,
