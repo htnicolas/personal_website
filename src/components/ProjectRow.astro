@@ -132,6 +132,7 @@ function renderMediaItems(mediaItems) {
         
         // Toggle the height of the content
         if (projectContent.style.height === '0px' || !projectContent.style.height) {
+          // Opening the content
           projectContent.style.height = projectContent.scrollHeight + 'px';
           
           // Wait a small amount of time for the content to expand before scrolling
@@ -148,7 +149,21 @@ function renderMediaItems(mediaItems) {
             });
           }, 50); // Small delay to allow DOM to update
         } else {
-          projectContent.style.height = '0px';
+          // Closing the content
+          // First, scroll back to center on the row itself
+          const rowRect = this.getBoundingClientRect();
+          const targetPosition = window.scrollY + rowRect.top - (window.innerHeight / 2) + (rowRect.height / 2);
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // After scrolling, collapse the content with a slight delay
+          // This ensures the scroll happens before the collapse
+          setTimeout(() => {
+            projectContent.style.height = '0px';
+          }, 300);
         }
       });
     });
