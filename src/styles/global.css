@@ -103,7 +103,7 @@ h1 {
 }
 
 .project-date {
-  font-size: var(--row-font-size);;
+  font-size: var(--row-font-size);
   font-weight: 10;
   margin-right: 1rem;
   opacity: 0.7;
@@ -284,6 +284,60 @@ h1 {
   opacity: 1;
 }
 
+/* AnimatedName Component Styles */
+.animated-name {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--name-font-size, 5rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--name-color, var(--text-color));
+  position: relative;
+  user-select: none;
+}
+
+.animated-name .letter {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.1s ease, top 0.1s ease, color 0.2s ease;
+  top: 0;
+  transform-origin: center bottom;
+}
+
+.animated-name .letter:hover {
+  color: var(--name-hover-color, var(--accent-color));
+}
+
+.animated-name .letter.pressed {
+  transform: scale(0.92);
+  top: 6px;
+}
+
+/* Fallback animation for non-GSAP environments */
+@keyframes letter-release {
+  0% {
+    transform: scale(0.92);
+    top: 6px;
+  }
+  40% {
+    transform: scale(1.05);
+    top: -2px;
+  }
+  70% {
+    transform: scale(0.98);
+    top: 1px;
+  }
+  100% {
+    transform: scale(1);
+    top: 0;
+  }
+}
+
+.animated-name .letter.releasing {
+  animation: letter-release 0.6s ease forwards;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .project-content-inner {
@@ -306,5 +360,9 @@ h1 {
   .project-title,
   .project-date {
     font-size: 1.4rem; /* Smaller font size on mobile */
+  }
+  
+  .animated-name {
+    font-size: calc(var(--name-font-size, 5rem) * 0.7);
   }
 }
