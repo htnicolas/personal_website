@@ -115,3 +115,42 @@ function renderMediaItems(mediaItems) {
     </div>
   </div>
 </div>
+
+<script>
+  // Function to handle row click and center scrolling
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectRows = document.querySelectorAll('.project-row');
+    
+    projectRows.forEach(row => {
+      row.addEventListener('click', function() {
+        // Get the project number from the data attribute
+        const projectNum = this.getAttribute('data-project');
+        const projectContent = document.getElementById(`project-${projectNum}`);
+        
+        // Toggle active class on the row
+        this.classList.toggle('active');
+        
+        // Toggle the height of the content
+        if (projectContent.style.height === '0px' || !projectContent.style.height) {
+          projectContent.style.height = projectContent.scrollHeight + 'px';
+          
+          // Wait a small amount of time for the content to expand before scrolling
+          setTimeout(() => {
+            // Calculate the position to scroll to (centered in viewport)
+            const rowRect = this.getBoundingClientRect();
+            const contentRect = projectContent.getBoundingClientRect();
+            const targetPosition = window.scrollY + rowRect.top - (window.innerHeight / 2) + ((rowRect.height + contentRect.height) / 2);
+            
+            // Smooth scroll to the position
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }, 50); // Small delay to allow DOM to update
+        } else {
+          projectContent.style.height = '0px';
+        }
+      });
+    });
+  });
+</script>
