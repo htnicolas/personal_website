@@ -16,7 +16,18 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Castro Studio",
+    title: "IRMAI",
+    year: "2025",
+    description: [
+        "IRMAI is still under wraps - check back later!"
+    ],
+    media: [
+    ],
+    tags: ["LLMs", "Celery", "Docker", "Semantic Search", "Python", "React", ]
+  },
+  {
+    id: 2,
+    title: "CastroStudio",
     year: "2025",
     description: [
       "A paternity leave project - now that I realized my childhood dream of having a music room in the attic, complete with an electronic drum kit, bass, guitar, keyboards, monitors, recording interface... how do I let people know I'm recording, please do not disturb?",
@@ -41,18 +52,7 @@ export const projects: Project[] = [
         alt: "Demonstration of interactive features"
       }
     ],
-    tags: ["Python", "MIDI", "OSC", "Raspberry Pi", "OBS Studio", "Logic Pro X"]
-  },
-  {
-    id: 2,
-    title: "IRMAI",
-    year: "2025",
-    description: [
-        "IRMAI is still under wraps - check back later!"
-    ],
-    media: [
-    ],
-    tags: ["LLMs", "Python", "React", "Celery", "Docker"]
+    tags: ["Python", "MIDI over the Network", "OSC", "Raspberry Pi", "OBS Studio", "Logic Pro X"]
   },
   {
     id: 3,
@@ -140,7 +140,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Nord Stage Patch",
+    title: "NordStagePatch",
     year: "2018",
     description: [
       "A custom patch for Nord Stage 3 featuring signature catchphrases from your favorite rappers and hip-hop artists.",
@@ -157,7 +157,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
-    title: "Asset Placement In Videos",
+    title: "AssetPlacementInVideos",
     year: "2017",
     description: [
       "A research project at Uru, to embed digital assets in videos in a way that is both realistic and efficient, using homography for planar transforms.",
