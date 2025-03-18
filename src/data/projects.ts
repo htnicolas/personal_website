@@ -109,7 +109,9 @@ export const projects: Project[] = [
     year: "2018",
     description: [
       "A very public demo (an audience of 15k!) of the project Smooth Operator, at Adobe MAX 2018.",
-      "The project then got productized and became the <a href='https://helpx.adobe.com/premiere-pro/using/auto-reframe.html' target='_blank' rel='noopener noreferrer'>AutoReframe feature</a> in Adobe Premiere Pro and Premiere Rush, and was deployed as a service to become <a href='https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/video/dynamic-media-smart-crop-video' target='_blank' rel='noopener noreferrer'>Dynamic Media Smart Crop for Video</a> in Adobe Experience Manager (AEM).",
+      "You put in all the work to minutiously edit, carefully color-grade, and patientialy stitch your video... But nowadays, the work doesn't stop at publishing time: to maximize visibility, you need to create multiple versions of your video, each tailored to each different platform and aspect ratio. This is what Smooth Operator aims to solve.",
+      "The project was selected to be shown at MAX after 2 rounds of internal competition, and is a collaboration with Adobe Research and Premiere Pro.",
+      "Smooth Operator then got productized and became the <a href='https://helpx.adobe.com/premiere-pro/using/auto-reframe.html' target='_blank' rel='noopener noreferrer'>AutoReframe feature</a> in Adobe Premiere Pro and Premiere Rush, and was deployed as a service to become <a href='https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/dynamic-media/video/dynamic-media-smart-crop-video' target='_blank' rel='noopener noreferrer'>Dynamic Media Smart Crop for Video</a> in Adobe Experience Manager (AEM).",
     ],
     media: [
       {
