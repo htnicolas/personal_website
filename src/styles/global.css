@@ -370,44 +370,38 @@ h1 {
 /* Header Layout */
 .header-container {
   display: flex;
-  gap: 3rem; /* Increased from 2rem to give more breathing room */
-  align-items: flex-start; /* Changed from stretch to flex-start to align at the top */
+  gap: 3rem;
+  align-items: flex-start;
   margin-bottom: 1rem;
 }
 
 .name-container {
   flex: 0 0 auto;
-  display: flex;
-  padding-top: 0.5rem; /* Optional: slight padding at top if you want to fine-tune alignment */
 }
 
 .bio-container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content to the top */
-  padding-top: 1rem; /* Add some padding at the top of the bio */
 }
 
-/* Remove height: 100% and vertical centering from animated-name */
+/* Ensure precise top alignment */
 .animated-name {
   display: flex;
-  align-items: flex-start; /* Align to the top instead of center */
+  margin-top: 0;
+  padding-top: 0;
+  line-height: 1; /* Control the line height to improve alignment */
+}
+
+.bio {
+  margin-top: 0; /* Remove any top margin from bio paragraphs */
+  padding-top: 0; /* Remove any top padding from bio paragraphs */
 }
 
 /* Keep responsive design */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
-    gap: 2rem; /* Maintain some gap in mobile view */
-  }
-  
-  .name-container {
-    align-items: flex-start;
-    padding-top: 0; /* Remove top padding in mobile view */
-  }
-  
-  .bio-container {
-    padding-top: 0; /* Remove top padding in mobile view */
+    gap: 2rem;
   }
 }
