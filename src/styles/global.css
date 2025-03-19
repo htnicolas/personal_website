@@ -6,6 +6,7 @@
   --row-hover-color: #f0f0f0;
   --tag-bg-color: #eee;
   --row-font-size: 3.8rem;
+  --text-content-font-size: 0.7rem;
 }
 
 * {
@@ -44,7 +45,7 @@ h1 {
 }
 
 .bio {
-  font-size: 0.8rem;
+  font-size: var(--text-content-font-size);
   max-width: 500px;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -121,7 +122,7 @@ h1 {
   height: 0;
   overflow: hidden;
   padding: 0 1rem;
-  font-size: 0.7rem;
+  font-size: var(--text-content-font-size);
 }
 
 .project-content-inner {
@@ -133,7 +134,7 @@ h1 {
 
 .project-description {
   flex: 1;
-  max-width: 40%;
+  max-width: 60%;
   line-height: 1.6;
 }
 
@@ -147,7 +148,7 @@ h1 {
 
 /* Tags Styling */
 .tags {
-  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .tag {
@@ -157,7 +158,7 @@ h1 {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-size: var(--text-content-font-size);
 }
 
 /* Media Container Styles */
@@ -299,7 +300,6 @@ h1 {
 .animated-name .letter {
   position: relative;
   display: inline-block;
-  cursor: pointer;
   transition: transform 0.1s ease, top 0.1s ease, color 0.2s ease;
   top: 0;
   transform-origin: center bottom;
@@ -364,5 +364,50 @@ h1 {
   
   .animated-name {
     font-size: calc(var(--name-font-size, 5rem) * 0.7);
+  }
+}
+
+/* Header Layout */
+.header-container {
+  display: flex;
+  gap: 3rem; /* Increased from 2rem to give more breathing room */
+  align-items: flex-start; /* Changed from stretch to flex-start to align at the top */
+  margin-bottom: 1rem;
+}
+
+.name-container {
+  flex: 0 0 auto;
+  display: flex;
+  padding-top: 0.5rem; /* Optional: slight padding at top if you want to fine-tune alignment */
+}
+
+.bio-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  padding-top: 1rem; /* Add some padding at the top of the bio */
+}
+
+/* Remove height: 100% and vertical centering from animated-name */
+.animated-name {
+  display: flex;
+  align-items: flex-start; /* Align to the top instead of center */
+}
+
+/* Keep responsive design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 2rem; /* Maintain some gap in mobile view */
+  }
+  
+  .name-container {
+    align-items: flex-start;
+    padding-top: 0; /* Remove top padding in mobile view */
+  }
+  
+  .bio-container {
+    padding-top: 0; /* Remove top padding in mobile view */
   }
 }
