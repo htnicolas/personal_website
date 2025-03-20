@@ -77,10 +77,9 @@ h1 {
 /* Project Row Styles */
 .project-row {
   padding: 0.1rem 0;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 100px 1fr 150px; /* Fixed widths for number and date, flexible for title */
   align-items: center;
-  cursor: pointer;
   position: relative;
   opacity: 0; /* For initial animation */
 }
@@ -92,22 +91,21 @@ h1 {
 .project-number {
   font-size: var(--row-font-size);
   font-weight: 10;
-  margin-right: 1rem;
-  margin-left: 1rem;
   opacity: 0.7;
+  text-align: center;
 }
 
 .project-title {
   font-size: var(--row-font-size);
   font-weight: 400;
-  flex-grow: 1;
 }
 
 .project-date {
   font-size: var(--row-font-size);
   font-weight: 10;
-  margin-right: 1rem;
   opacity: 0.7;
+  text-align: right;
+  padding-right: 1rem;
 }
 
 .divider {
@@ -170,8 +168,8 @@ h1 {
 }
 
 .media-carousel {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* repeat(2, 1fr) to create two columns */
   gap: 1rem;
   padding-bottom: 1rem;
   padding-right: 0.5rem; /* Add some padding to account for scrollbar */
@@ -182,8 +180,23 @@ h1 {
   height: auto;
   background-color: #ddd;
   border-radius: 4px;
-  margin-bottom: 1rem;
+  margin-bottom: 0; /* Removed margin-bottom since we're using grid gap */
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Media item aspect ratio classes */
+.media-item.portrait {
+  grid-row: span 2; /* Take up two rows for portrait images */
+}
+
+.media-item.square {
+  aspect-ratio: 1/1; /* Perfect square */
+}
+
+.media-item.landscape {
+  aspect-ratio: 16/9; /* Standard landscape ratio */
 }
 
 /* For background images */
@@ -200,6 +213,7 @@ h1 {
   height: auto;
   display: block;
   border-radius: 4px;
+  object-fit: cover; /* Ensures images maintain aspect ratio while filling space */
 }
 
 /* For videos */
@@ -218,6 +232,7 @@ h1 {
   overflow: hidden;
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio for YouTube */
+  height: 0; /* Ensure proper aspect ratio calculation */
 }
 
 .instagram-container {
@@ -295,6 +310,9 @@ h1 {
   color: var(--name-color, var(--text-color));
   position: relative;
   user-select: none;
+  margin-top: 0;
+  padding-top: 0;
+  line-height: 1; /* Control the line height to improve alignment */
 }
 
 .animated-name .letter {
@@ -338,35 +356,6 @@ h1 {
   animation: letter-release 0.6s ease forwards;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .project-content-inner {
-    flex-direction: column;
-  }
-
-  .project-description {
-    max-width: 100%;
-  }
-  
-  .media-container {
-    max-height: 400px; /* Slightly smaller on mobile */
-  }
-
-  h1 {
-    font-size: 3.5rem;
-  }
-
-  .project-number,
-  .project-title,
-  .project-date {
-    font-size: 1.4rem; /* Smaller font size on mobile */
-  }
-  
-  .animated-name {
-    font-size: calc(var(--name-font-size, 5rem) * 0.7);
-  }
-}
-
 /* Header Layout */
 .header-container {
   display: flex;
@@ -385,21 +374,53 @@ h1 {
   flex-direction: column;
 }
 
-/* Ensure precise top alignment */
-.animated-name {
-  display: flex;
-  margin-top: 0;
-  padding-top: 0;
-  line-height: 1; /* Control the line height to improve alignment */
-}
-
 .bio {
   margin-top: 0; /* Remove any top margin from bio paragraphs */
   padding-top: 0; /* Remove any top padding from bio paragraphs */
 }
 
-/* Keep responsive design */
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .media-carousel {
+    grid-template-columns: 1fr; /* Revert to single column on medium screens */
+  }
+}
+
 @media (max-width: 768px) {
+  .project-content-inner {
+    flex-direction: column;
+  }
+
+  .project-description {
+    max-width: 100%;
+  }
+  
+  .media-container {
+    max-height: 400px; /* Slightly smaller on mobile */
+  }
+
+  .media-carousel {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+
+  .project-row {
+    grid-template-columns: 60px 1fr 100px; /* Adjusted for mobile */
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .project-number,
+  .project-title,
+  .project-date {
+    font-size: 1.4rem; /* Smaller font size on mobile */
+  }
+  
+  .animated-name {
+    font-size: calc(var(--name-font-size, 5rem) * 0.7);
+  }
+  
   .header-container {
     flex-direction: column;
     gap: 2rem;
