@@ -135,7 +135,7 @@ export const projects: Project[] = [
         alt: "Gif of auto-reframing in action"
       },
     ],
-    tags: ["ML", "Python", "Video", "Adobe"]
+    tags: ["ML", "Unet", "Convex Optimization", "Video", "Adobe"]
 
   },
   {
