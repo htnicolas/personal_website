@@ -104,6 +104,22 @@ export const projects: Project[] = [
     tags: ["WASM", "React", "Python", "MIDI"]
   },
   {
+    id: 4,
+    title: "Processing",
+    year: "2019",
+    description: [
+      "A series of sketches and experiments in Processing, most of them focused on music visualization.",
+    ],
+    media: [
+      {
+        type: "video",
+        url: "https://youtu.be/do1IYZOVTWQ",
+        alt: "Processing sketches"
+      },
+    ],
+    tags: ["Processing", "Audiovisual"]
+  },
+  {
     id: 5,
     title: "SmoothOperator",
     year: "2018",
