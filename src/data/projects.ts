@@ -160,12 +160,12 @@ export const projects: Project[] = [
     year: "2018",
     description: [
       "A custom patch for Nord Stage 3 featuring signature catchphrases from your favorite rappers and hip-hop artists.",
-      "Download the patch here: <a href='https://link-to-download' target='_blank' rel='noopener noreferrer'>NordRapPatch</a>",
+      "Download the patch here: <a href='https://drive.google.com/file/d/1e6IBA5yn7ZLurAU-T74sv6-CfTLV22qT/view?usp=sharing' target='_blank' rel='noopener noreferrer'>Nord Stage Rap/Hip-hop Ad Lib Sample Patch</a>",
     ],
     media: [
       {
         type: "video",
-        url: "https://youtu.be/do1IYZOVTWQ",
+        url: "https://youtu.be/obEjaRUIsGk",
         alt: "Youtube Conductor demo video"
       },
     ],
