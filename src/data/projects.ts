@@ -193,13 +193,15 @@ export const projects: Project[] = [
     year: "*",
     description: [
       "A list of patents I've been involved in.",
-      "<li> <a href='https://patentimages.storage.googleapis.com/b9/c0/33/a927e7e7dff949/US11490048.pdf' target='_blank' rel='noopener noreferrer'>US11490048B2</a>: Intelligent video reframing. A method for intelligently reframing video content to fit different aspect ratios, while preserving the most important content.",
-      "<li> <a href='https://patentimages.storage.googleapis.com/cd/87/0d/59e610a9f9a164/US10733452.pdf' target='_blank' rel='noopener noreferrer'>US10733452B2</a>: Brand safety in video content. A method for ensuring that video content is brand-safe, by analyzing the content and its context.",
-      "<li> <a href='https://patentimages.storage.googleapis.com/d0/9a/33/2298dc8e56d069/US10522186.pdf' target='_blank' rel='noopener noreferrer'>US10522186B2</a>: Apparatus, systems, and methods for integrating digital media content. An algorithm for integrating digital media content, such as ads, into video content - without extra AR sensor data such as IMU.",
-      "<li> <a href='https://patentimages.storage.googleapis.com/43/a0/f2/a7aa3b2782f3e8/US10726599.pdf' target='_blank' rel='noopener noreferrer'>US10726599B2</a>: Realistic augmentation of images and videos with graphics. An algorithm for warping planar media with projective distortion for seamless integration and harmonization.",
-      "<li> <a href='https://patentimages.storage.googleapis.com/23/f3/37/05c623f9593af9/US20200356818A1.pdf' target='_blank' rel='noopener noreferrer'>US20200356818A1</a>: Logo Detection. An architecture for multi-class logo detection.",
-      "<li> <a href='https://patentimages.storage.googleapis.com/d4/79/52/17a7840cd635e7/US20240362506A1.pdf' target='_blank' rel='noopener noreferrer'>US20240362506A1</a>: Efficiently inferencing digital videos utilizing machine-learning models.",
-      "<li> <a href='https://patentimages.storage.googleapis.com/b0/2b/04/2b1e1857a92bdd/US20230377339A1.pdf' target='_blank' rel='noopener noreferrer'>US20230377339A1</a>: Processing framework for temporal-consistent face manipulation in videos.",
+      "<ul>",
+      "<li><strong><a href='https://patentimages.storage.googleapis.com/b9/c0/33/a927e7e7dff949/US11490048.pdf' target='_blank' rel='noopener noreferrer'>US11490048B2</a></strong>: Intelligent video reframing. A method for intelligently reframing video content to fit different aspect ratios, while preserving the most important content.",
+      "<li><strong><a href='https://patentimages.storage.googleapis.com/cd/87/0d/59e610a9f9a164/US10733452.pdf' target='_blank' rel='noopener noreferrer'>US10733452B2</a></strong>: Brand safety in video content. A method for ensuring that video content is brand-safe, by analyzing the content and its context.",
+      "<li><strong><a href='https://patentimages.storage.googleapis.com/d0/9a/33/2298dc8e56d069/US10522186.pdf' target='_blank' rel='noopener noreferrer'>US10522186B2</a></strong>: Apparatus, systems, and methods for integrating digital media content. An algorithm for integrating digital media content, such as ads, into video content - without extra AR sensor data such as IMU.",
+      "<li><strong><a href='https://patentimages.storage.googleapis.com/43/a0/f2/a7aa3b2782f3e8/US10726599.pdf' target='_blank' rel='noopener noreferrer'>US10726599B2</a></strong>: Realistic augmentation of images and videos with graphics. An algorithm for warping planar media with projective distortion for seamless integration and harmonization.",
+      "<li><strong><a href='https://patentimages.storage.googleapis.com/23/f3/37/05c623f9593af9/US20200356818A1.pdf' target='_blank' rel='noopener noreferrer'>US20200356818A1</a></strong>: Logo Detection. An architecture for multi-class logo detection.",
+      "<li><strong><a href='https://patentimages.storage.googleapis.com/d4/79/52/17a7840cd635e7/US20240362506A1.pdf' target='_blank' rel='noopener noreferrer'>US20240362506A1</a></strong>: Efficiently inferencing digital videos utilizing machine-learning models.",
+      "<li><strong><a href='https://patentimages.storage.googleapis.com/b0/2b/04/2b1e1857a92bdd/US20230377339A1.pdf' target='_blank' rel='noopener noreferrer'>US20230377339A1</a></strong>: Processing framework for temporal-consistent face manipulation in videos.",
+      "</ul>",
     ],
     media: [
       {

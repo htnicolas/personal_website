@@ -127,7 +127,7 @@ h1 {
   padding: 2rem 0;
   position: relative;
   display: flex;
-  gap: 10rem; /* Increased from 2rem to 4rem to add more space between columns */
+  gap: 8rem; /* Increased from 2rem to 4rem to add more space between columns */
 }
 
 .project-description {
@@ -425,4 +425,48 @@ h1 {
     flex-direction: column;
     gap: 2rem;
   }
+}
+
+/* Bullet Point Styling */
+.project-description ul {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;
+  margin: 0.5rem 0;
+}
+
+.project-description li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.project-description li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+}
+
+/* Links in bullet points */
+.project-description li a {
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-color);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-description li a:hover {
+  color: var(--accent-color);
+}
+
+/* Patent numbers styling */
+.project-description li a strong {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 500;
+  font-size: 0.9em;
 }
