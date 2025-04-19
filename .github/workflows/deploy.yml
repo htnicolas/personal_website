@@ -13,37 +13,47 @@ permissions:
   pages: write
   id-token: write
 
+# Environment variables
+env:
+  BUILD_PATH: "." # default value when not using subfolders
+  
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository
+      - name: Checkout
         uses: actions/checkout@v3
       
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
+          cache: npm
           
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+        
       - name: Install dependencies
         run: npm ci
         
-      - name: Build
+      - name: Build with Astro
         run: npm run build
         
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: "./dist"
+          path: ./dist
           
   deploy:
-    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
     runs-on: ubuntu-latest
+    name: Deploy
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
