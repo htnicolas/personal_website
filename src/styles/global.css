@@ -127,12 +127,12 @@ h1 {
   padding: 2rem 0;
   position: relative;
   display: flex;
-  gap: 2rem;
+  gap: 10rem; /* Increased from 2rem to 4rem to add more space between columns */
 }
 
 .project-description {
   flex: 1;
-  max-width: 60%;
+  max-width: 40%; /* Reduced from 60% to 50% to make the description column narrower */
   line-height: 1.6;
 }
 
@@ -161,7 +161,7 @@ h1 {
 
 /* Media Container Styles */
 .media-container {
-  flex: 1;
+  flex: 1; /* Changed from flex: 1 to flex: 0.8 to make the media column narrower */
   max-height: 500px; /* Set a fixed height for the container */
   overflow-y: auto; /* Enable vertical scrolling */
   border-radius: 4px; /* Optional: rounded corners */
