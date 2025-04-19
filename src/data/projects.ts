@@ -32,7 +32,7 @@ export const projects: Project[] = [
     description: [
       "A paternity leave project - now that I realized my childhood dream of having a music room in the attic, complete with an electronic drum kit, bass, guitar, keyboards, monitors, recording interface... how do I let people know I'm recording, please do not disturb?",
       "This project uses a Raspberry Pi running an OSC server to receive messages from a DAW (Digital Audio Workstation), namely Logic Pro X. When the DAW is recording, the Raspberry Pi triggers an optocoupler to light up an LED strip to indicate that recording is in progress.",
-      "But why stop there? What if starting a recording session could also trigger video recording, and control the light differently during recording and playback?",
+      "But why stop there? What if starting a recording session could also trigger video recording, and control the light differently during recording and playback? For me, automating both audio and video recording means less time spent on setup, and more time spent on actually recording.",
       "Github Repo: <a href='https://github.com/htnicolas/logic_recording_light' target='_blank' rel='noopener noreferrer'>Logic Recording Light</a>"
     ],
     media: [
