@@ -5,4 +5,5 @@ export default defineConfig({
   site: 'https://htnicolas.github.io/',
   base: 'personal_website',
   output: 'static',
+  integrations: [image()],
 });

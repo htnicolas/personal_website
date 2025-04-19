@@ -33,6 +33,7 @@ function getInstagramID(url) {
 }
 
 // Function to render media items
+// Function to render media items
 function renderMediaItems(mediaItems) {
   if (!mediaItems || !mediaItems.length) {
     return `<div class="media-item"></div>`;
@@ -40,8 +41,13 @@ function renderMediaItems(mediaItems) {
 
   return mediaItems.map(item => {
     if (item.type === 'image') {
+      // Add the import.meta.env.BASE_URL prefix to local image URLs
+      const imageUrl = item.url.startsWith('http') 
+        ? item.url  // External URL (keep as is)
+        : `${import.meta.env.BASE_URL}${item.url.startsWith('/') ? '' : '/'}${item.url}`; // Local URL (add base path)
+      
       return `<div class="media-item">
-        <img src="${item.url}" alt="${item.alt}" loading="lazy" />
+        <img src="${imageUrl}" alt="${item.alt}" loading="lazy" />
       </div>`;
     } else if (item.type === 'video') {
       // Check if it's a YouTube URL
@@ -60,9 +66,13 @@ function renderMediaItems(mediaItems) {
           </iframe>
         </div>`;
       } else {
-        // Regular video file
+        // Regular video file - also add base URL for local videos
+        const videoUrl = item.url.startsWith('http') 
+          ? item.url 
+          : `${import.meta.env.BASE_URL}${item.url.startsWith('/') ? '' : '/'}${item.url}`;
+        
         return `<div class="media-item">
-          <video controls src="${item.url}" title="${item.alt}"></video>
+          <video controls src="${videoUrl}" title="${item.alt}"></video>
         </div>`;
       }
     } else if (item.type === 'instagram') {
