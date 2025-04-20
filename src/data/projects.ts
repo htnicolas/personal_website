@@ -46,11 +46,6 @@ export const projects: Project[] = [
         url: "/images/logic_recording_light/logic_rec_light_seq_diagram.png",
         alt: "General sequence diagram for the Logic Recording Light project"
       },
-      {
-        type: "video",
-        url: "/images/interaction-demo.mp4",
-        alt: "Demonstration of interactive features"
-      }
     ],
     tags: ["Python", "MIDI over the Network", "OSC", "Raspberry Pi", "OBS Studio", "Logic Pro X"]
   },

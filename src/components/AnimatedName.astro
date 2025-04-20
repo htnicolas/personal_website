@@ -114,8 +114,8 @@ const {
     console.log('Initializing keyboard sound effects');
 
     // Create sound pools
-    const keyDownSoundPool = new SoundPool(`${import.meta.env.BASE_URL}/sounds/key-down.mp3`, 4);
-    const keyUpSoundPool = new SoundPool(`${import.meta.env.BASE_URL}/sounds/key-up.mp3`, 4);
+    const keyDownSoundPool = new SoundPool(`${import.meta.env.BASE_URL}sounds/key-down.mp3`, 4);
+    const keyUpSoundPool = new SoundPool(`${import.meta.env.BASE_URL}sounds/key-up.mp3`, 4);
 
     // Force initialization
     keyDownSoundPool.init();
@@ -125,7 +125,7 @@ const {
     function initOnInteraction() {
       // Play a silent sound to unlock audio
       const silentSound = new Audio();
-      silentSound.src = `${import.meta.env.BASE_URL}/sounds/key-down.mp3`;
+      silentSound.src = `${import.meta.env.BASE_URL}sounds/key-down.mp3`;
       silentSound.volume = 0.001;
       silentSound.play().catch(() => console.log('Silent sound initialization failed, this is normal.'));
 
