@@ -5,7 +5,6 @@ export interface Media {
 }
 
 export interface Project {
-  id: number;
   title: string;
   year: string;
   description: string[]; // Changed from string to string[] (array of strings)
@@ -15,7 +14,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 1,
     title: "IRMAI",
     year: "2025",
     description: [
@@ -26,11 +24,21 @@ export const projects: Project[] = [
     tags: ["LLMs", "Celery", "Docker", "Semantic Search", "Python", "React", ]
   },
   {
-    id: 2,
+    title: "JoyCombFilter",
+    year: "2025",
+    description: [
+        "Right foot - kick drum. Left foot - hihat pedal. Right/Left hands - HH/Snare/Toms. What's left? In this project, I explore adding another body part: using my head to control a comb filter in real time.",
+        "TBD - check back later!",
+    ],
+    media: [
+    ],
+    tags: ["Logic Pro X", "MIDI", "Joycon"]
+  },
+  {
     title: "CastroStudio",
     year: "2025",
     description: [
-      "A paternity leave project - now that I realized my childhood dream of having a music room in the attic, complete with an electronic drum kit, bass, guitar, keyboards, monitors, recording interface... how do I let people know I'm recording, please do not disturb?",
+      "A paternity leave project - now that I made my childhood dream of having a music room in the attic come true, complete with an electronic drum kit, bass, guitar, keyboards, monitors, recording interface... how do I let people know I'm recording, please do not disturb?",
       "This project uses a Raspberry Pi running an OSC server to receive messages from a DAW (Digital Audio Workstation), namely Logic Pro X. When the DAW is recording, the Raspberry Pi triggers an optocoupler to light up an LED strip to indicate that recording is in progress.",
       "But why stop there? What if starting a recording session could also trigger video recording, and control the light differently during recording and playback? For me, automating both audio and video recording means less time spent on setup, and more time spent on actually recording.",
       "Github Repo: <a href='https://github.com/htnicolas/logic_recording_light' target='_blank' rel='noopener noreferrer'>Logic Recording Light</a>"
@@ -50,7 +58,6 @@ export const projects: Project[] = [
     tags: ["Python", "MIDI over the Network", "OSC", "Raspberry Pi", "OBS Studio", "Logic Pro X"]
   },
   {
-    id: 3,
     title: "MIDI2AE",
     year: "2023",
     description: [
@@ -80,7 +87,6 @@ export const projects: Project[] = [
     tags: ["Webapp", "Python", "Flask", "MIDI", "After Effects", "React", "Google Cloud"]
   },
   {
-    id: 4,
     title: "Conductor",
     year: "2022",
     description: [
@@ -99,7 +105,6 @@ export const projects: Project[] = [
     tags: ["WASM", "React", "Python", "MIDI"]
   },
   {
-    id: 4,
     title: "Processing",
     year: "2019",
     description: [
@@ -115,7 +120,6 @@ export const projects: Project[] = [
     tags: ["Processing", "Audiovisual"]
   },
   {
-    id: 5,
     title: "SmoothOperator",
     year: "2018",
     description: [
@@ -150,25 +154,23 @@ export const projects: Project[] = [
 
   },
   {
-    id: 6,
-    title: "NordStagePatch",
+    title: "AdLibPatch",
     year: "2018",
     description: [
-      "A custom patch for Nord Stage 3 featuring signature catchphrases from your favorite rappers and hip-hop artists.",
+      "A custom patch for Nord Stage 3 featuring signature catchphrases from famous rappers and hip-hop artists.",
       "Download the patch here: <a href='https://drive.google.com/file/d/1e6IBA5yn7ZLurAU-T74sv6-CfTLV22qT/view?usp=sharing' target='_blank' rel='noopener noreferrer'>Nord Stage Rap/Hip-hop Ad Lib Sample Patch</a>",
     ],
     media: [
       {
         type: "video",
         url: "https://youtu.be/obEjaRUIsGk",
-        alt: "Youtube Conductor demo video"
+        alt: "Rap and Hiphop adlib sample patch for the Nord Stage"
       },
     ],
     tags: ["Nord", "Python"]
   },
   {
-    id: 7,
-    title: "AssetPlacementInVideos",
+    title: "AssetPlacement",
     year: "2017",
     description: [
       "A research project at Uru, to embed digital assets in videos in a way that is both realistic and efficient, using homography for planar transforms.",
@@ -180,10 +182,9 @@ export const projects: Project[] = [
         alt: "Example of asset placement in video"
       },
     ],
-    tags: ["Python", "OpenCV", "Epipolar Geometry", "Computer Vision"]
+    tags: ["Python", "OpenCV", "Epipolar Geometry", "Computer Vision", "Homography"]
   },
   {
-    id: 8,
     title: "Patents",
     year: "*",
     description: [
