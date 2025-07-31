@@ -18,7 +18,7 @@ export const projects: Project[] = [
     year: "2025",
     description: [
         "Connect a MIDI keyboard or use your computer's keyboard to play chords. Get unfiltered feedback on your voicing choices and explore the complexity of your musical ideas. WWJS will analyze your input in real-time, providing visual and auditory feedback based on the complexity of the chords you play.",
-        "Try out WWJCS here: <a href='https://wwjcs.com' target='_blank' rel='noopener'>wwjcs.com</a>",
+        "Try out WWJCS here: <a href='https://what-would-jacob-say.vercel.app/' target='_blank' rel='noopener'>wwjcs.com</a>",
     ],
     media: [
       {
